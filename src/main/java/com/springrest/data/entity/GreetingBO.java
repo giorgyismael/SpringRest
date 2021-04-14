@@ -1,4 +1,4 @@
-package br.com.giorgyoliveira;
+package com.springrest.data.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Greeting {
+public class GreetingBO {
     private final long id;
     private final String content;
 

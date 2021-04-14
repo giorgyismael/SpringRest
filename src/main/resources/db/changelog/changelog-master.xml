@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd" logicalFilePath="path-independent">
+
+	<property name="autoIncrement" value="false" dbms="oracle" />
+    <property name="autoIncrement" value="true" dbms="mysql" />
+    <property name="autoIncrement" value="true" dbms="mssql" />
+	
+	<property name="now" value="(SELECT SYSDATE FROM DUAL)" dbms="oracle" />
+	<property name="now" value="NOW()" dbms="mysql" />
+	<property name="now" value="GETDATE()" dbms="mssql" />	
+	
+	<property name="cblob" value="BLOB" dbms="oracle" />
+	<property name="cblob" value="MEDIUMBLOB" dbms="mysql" />
+	
+	<property name="cblob" value="IMAGE" dbms="mssql" />
+	
+	<property name="INTEGER" value="NUMBER(10, 0)" dbms="oracle" />
+	<property name="INTEGER" value="INTEGER" dbms="mysql,mssql" />
+
+	<property name="BIGINTEGER" value="NUMBER(19, 0)" dbms="oracle" />
+	<property name="BIGINTEGER" value="BIGINT" dbms="mysql,mssql" />
+
+	<property name="DATETIME" value="DATE" dbms="oracle" />
+	<property name="DATETIME" value="DATETIME" dbms="mysql,mssql" />
+	
+	<include file="/changes/rest-with-springboot-0001.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>
