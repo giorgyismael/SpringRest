@@ -24,6 +24,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <junit>4.8.1</junit>
+        <liquibase>4.3.1</liquibase>
     </properties>
         <dependencies>
             <dependency>
@@ -47,12 +48,13 @@
 				<artifactId>spring-boot-starter-data-jpa</artifactId>
 			</dependency>
 			
+			<!-- for create Adapter Objects -->  
 			<dependency>
 			    <groupId>com.github.dozermapper</groupId>
 			    <artifactId>dozer-core</artifactId>
 			    <version>${dozer.mapper}</version>
 			</dependency>  
-
+				
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -73,8 +75,20 @@
 			<dependency>
 			    <groupId>org.liquibase</groupId>
 			    <artifactId>liquibase-core</artifactId>
+			     <version>${liquibase}</version>
 			</dependency>
-
+			
+			<!-- for XML support -->  
+	        <dependency>
+				<groupId>com.fasterxml.jackson.dataformat</groupId>
+				<artifactId>jackson-dataformat-xml</artifactId>
+			</dependency>
+	        
+	        <!-- for YML support -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.dataformat</groupId>
+				<artifactId>jackson-dataformat-yaml</artifactId>
+			</dependency>
         </dependencies>
 
         <build>

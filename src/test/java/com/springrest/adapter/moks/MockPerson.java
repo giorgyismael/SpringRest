@@ -38,7 +38,7 @@ public class MockPerson {
 	    	.firstName("First Name Test" + number)
 	    	.address("Addres Test" + number)
 	        .gender(((number % 2)==0) ? Gender.MALE : Gender.FEMALE)
-	        .id(number.longValue()).build();
+	        .id_person(number.longValue()).build();
 	    }
 
 	    private PersonVO mockVO(Integer number) {
@@ -46,7 +46,7 @@ public class MockPerson {
 	    	    	.firstName("First Name Test" + number)
 	    	    	.address("Addres Test" + number)
 	    	        .gender(((number % 2)==0) ? Gender.MALE : Gender.FEMALE)
-	    	        .id(number.longValue()).build();
+	    	        .id_person(number.longValue()).build();
 	    }
 
 }

@@ -14,8 +14,8 @@ import com.springrest.data.entity.PersonBO;
 import com.springrest.service.PersonService;
 
 @RestController
-@RequestMapping("/oldPerson")
-public class OldRestPersonControler {
+@RequestMapping("/person/v2")
+public class PersonControlerV2 {
 	
 	@Autowired
 	PersonService personService;

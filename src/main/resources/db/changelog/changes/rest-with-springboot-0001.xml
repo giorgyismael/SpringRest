@@ -8,7 +8,7 @@
 	</changeSet>
 	
 	<changeSet author="gioliveira" id="0001-2">
-        <createTable tableName="Person">
+        <createTable tableName="person">
             <column autoIncrement="${autoIncrement}" name="id_person" type="${INTEGER}">
 				<constraints primaryKey="true" primaryKeyName="PK_DR_CANCEL" />
 			</column>
@@ -22,31 +22,31 @@
     </changeSet>
     
     <changeSet author="gioliveira" id="0001-3">
-		<insert tableName="Person">
+		<insert tableName="person">
             <column name="id_person" autoIncrement="${autoIncrement}"/>
             <column name="first_name" value="Giorgy Rosa"/>
             <column name="gender" valueNumeric="0"/>
             <column name="address" value="Joinville/SC"/>
         </insert>
-        <insert tableName="Person">
+        <insert tableName="person">
             <column name="id_person" autoIncrement="${autoIncrement}"/>
             <column name="first_name" value="Veridiana Rosa"/>
             <column name="gender" valueNumeric="1"/>
             <column name="address" value="Joinville/SC"/>
         </insert>
-        <insert tableName="Person">
+        <insert tableName="person">
             <column name="id_person" autoIncrement="${autoIncrement}"/>
             <column name="first_name" value="Analice Rosa"/>
             <column name="gender" valueNumeric="0"/>
             <column name="address" value="Joinville/SC"/>
         </insert>
-        <insert tableName="Person">
+        <insert tableName="person">
             <column name="id_person" autoIncrement="${autoIncrement}"/>
             <column name="first_name" value="Helena Rosa"/>
             <column name="gender" valueNumeric="0"/>
             <column name="address" value="Joinville/SC"/>
         </insert>
-        <insert tableName="Person">
+        <insert tableName="person">
             <column name="id_person" autoIncrement="${autoIncrement}"/>
             <column name="first_name" value="João Rafael Rosa"/>
             <column name="gender" valueNumeric="1"/>
