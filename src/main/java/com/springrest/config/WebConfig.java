@@ -2,6 +2,7 @@ package com.springrest.config;
 
 import java.util.List;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -13,8 +14,12 @@ import com.springrest.serializer.converter.YamlJackson2HttpMessageConverter;
 
 
 
+
+/*
+ * @EnableWebMvc
+ * Quando se utiliza @ComponentScan no startup não é nnecessário utilizar esta notação visto que ambas vão subir os serviços
+ */
 @Configuration
-@EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 	
 	
