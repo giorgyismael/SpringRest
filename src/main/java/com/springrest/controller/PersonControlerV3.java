@@ -1,8 +1,9 @@
-package com.springrest.controler;
+package com.springrest.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Consumer;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +19,8 @@ import com.springrest.data.vo.PersonVO;
 import com.springrest.service.PersonService;
 
 @RestController
-@RequestMapping("/person/v1")
-public class PersonControlerV1 {
+@RequestMapping("/person/v3")
+public class PersonControlerV3 {
 	
 	@Autowired
 	PersonService personService;
@@ -27,22 +28,24 @@ public class PersonControlerV1 {
 	@Autowired
 	PersonAdapter personAdapter;
 	
-	@GetMapping
+	@GetMapping(produces = { "application/json", "application/xml",  "application/x-yaml"})
 	public List<PersonVO> findAll() {
 		return personService.findAll();
 	}
 
-	@GetMapping(value="/{id}")
+	@GetMapping(value="/{id}", produces = {"application/json", "application/xml",  "application/x-yaml"})
     public PersonVO findByID(@PathVariable("id") Long id) {
     	return personService.findById(id);
     }
     
-    @PostMapping
+    @PostMapping(produces = {"application/json", "application/xml",  "application/x-yaml"}, 
+    		consumes= {"application/json", "application/xml",  "application/x-yaml"})
     public PersonVO create(@RequestBody PersonVO person) {
     	return personService.save(person);	
     }
     
-    @PutMapping
+    @PutMapping(produces = {"application/json", "application/xml",  "application/x-yaml"}, 
+    		consumes= {"application/json", "application/xml",  "application/x-yaml"})
     public PersonVO update(@RequestBody PersonVO person) {
     	return personService.update(person);	
     }
@@ -52,7 +55,4 @@ public class PersonControlerV1 {
     	personService.delete(id);	
     	return ResponseEntity.ok().build();
     }
-    
-
-
 }

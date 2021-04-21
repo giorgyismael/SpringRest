@@ -1,4 +1,4 @@
-package com.springrest.controler;
+package com.springrest.controller;
 
 import java.util.List;
 
