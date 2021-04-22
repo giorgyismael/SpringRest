@@ -12,7 +12,7 @@ import com.github.dozermapper.core.Mapper;
 import lombok.experimental.UtilityClass;
 
 @Component
-public class PersonAdapter {
+public class ObjectAdapter {
 	
 	private static Mapper mapper = DozerBeanMapperBuilder.buildDefault();
 

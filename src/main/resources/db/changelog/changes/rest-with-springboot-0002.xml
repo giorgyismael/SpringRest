@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd" logicalFilePath="rest-with-springboot-0001.xml">
+
+	<changeSet author="gioliveira" id="0002-1">
+		<tagDatabase tag="0002" />
+	</changeSet>
+	
+	<changeSet author="gioliveira" id="0002-2">
+        <createTable tableName="books">
+            <column autoIncrement="${autoIncrement}" name="id_book" type="${INTEGER}">
+				<constraints primaryKey="true" primaryKeyName="PK_DR_CANCEL" />
+			</column>
+            <column name="author" type="VARCHAR(128)">
+				<constraints nullable="false"/>
+			</column>
+			<column name="title" type="VARCHAR(128)">
+				<constraints nullable="false"/>
+			</column>
+            <column name="launch_date" type="DATETIME">
+				<constraints nullable="false"/>
+			</column>
+            <column name="price" type="DECIMAL(65,2)">
+				<constraints nullable="false"/>
+			</column>
+        </createTable>
+        <rollback>
+        	<dropTable tableName="books"/>
+        </rollback>
+    </changeSet>
+	
+	<changeSet author="gioliveira" id="0002-3">
+		<insert tableName="books">
+            <column name="author" value="Michael C. Feathers"/>
+            <column name="launch_date" valueDate="${now}" />
+            <column name="price" valueNumeric="9.00"/>
+            <column name="title" value="Working effectively with legacy code"/>
+        </insert>
+		<insert tableName="books">
+            <column name="author" value="Ralph Johnson, Erich Gamma"/>
+            <column name="launch_date" valueDate="${now}" />
+            <column name="price" valueNumeric="45.00"/>
+            <column name="title" value="Design Patterns"/>
+        </insert>
+		<insert tableName="books">
+            <column name="author" value="Robert C. Martin"/>
+            <column name="launch_date" valueDate="${now}" />
+            <column name="price" valueNumeric="77.00"/>
+            <column name="title" value="Clean Code"/>
+        </insert>
+		<insert tableName="books">
+            <column name="author" value="Crockford"/>
+            <column name="launch_date" valueDate="${now}" />
+            <column name="price" valueNumeric="67.00"/>
+            <column name="title" value="JavaScript"/>
+        </insert>
+		<insert tableName="books">
+            <column name="author" value="Steve McConnell"/>
+            <column name="launch_date" valueDate="${now}" />
+            <column name="price" valueNumeric="58.00"/>
+            <column name="title" value="Code complete"/>
+        </insert>
+		<insert tableName="books">
+            <column name="author" value="Martin Fowler e Kent Beck"/>
+            <column name="launch_date" valueDate="${now}" />
+            <column name="price" valueNumeric="88.00"/>
+            <column name="title" value="Refactoring"/>
+        </insert>
+		<insert tableName="books">
+            <column name="author" value="Eric Freeman, Elisabeth Freeman, Kathy Sierra, Bert Bates"/>
+            <column name="launch_date" valueDate="${now}" />
+            <column name="price" valueNumeric="110.00"/>
+            <column name="title" value="Head First Design Patterns"/>
+        </insert>
+		<insert tableName="books">
+            <column name="author" value="ric Evans"/>
+            <column name="launch_date" valueDate="${now}" />
+            <column name="price" valueNumeric="92.00"/>
+            <column name="title" value="Domain Driven Design"/>
+        </insert>
+	    <rollback />
+	</changeSet>
+</databaseChangeLog>

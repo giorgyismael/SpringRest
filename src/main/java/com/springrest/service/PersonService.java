@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springrest.adapter.PersonAdapter;
+import com.springrest.adapter.ObjectAdapter;
 import com.springrest.data.entity.PersonBO;
 import com.springrest.data.vo.PersonHATEOAS;
 import com.springrest.data.vo.PersonVO;
@@ -29,13 +29,13 @@ public class PersonService {
 	public PersonVO findById(Long id) {
 		PersonBO person =  personRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundExceprion("No record found for this ID"));
-		return PersonAdapter.parseObject(person, PersonVO.class);
+		return ObjectAdapter.parseObject(person, PersonVO.class);
 	}
 	
 	public PersonHATEOAS findByIdHateoas(Long id) {
 		PersonBO person =  personRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundExceprion("No record found for this ID"));
-		return PersonAdapter.parseObject(person, PersonHATEOAS.class);
+		return ObjectAdapter.parseObject(person, PersonHATEOAS.class);
 	}
 	
 	public PersonBO saveOld(PersonBO person) {
@@ -44,15 +44,15 @@ public class PersonService {
 	}
 	
 	public PersonVO  save(PersonVO personVO) {
-		PersonBO person = PersonAdapter.parseObject(personVO, PersonBO.class);
-		return PersonAdapter.parseObject(
+		PersonBO person = ObjectAdapter.parseObject(personVO, PersonBO.class);
+		return ObjectAdapter.parseObject(
 				personRepository.save(person), PersonVO.class);
 
 	}
 	
 	public PersonHATEOAS  saveHateoas(PersonHATEOAS personHATEOAS) {
-		PersonBO person = PersonAdapter.parseObject(personHATEOAS, PersonBO.class);
-		return PersonAdapter.parseObject(
+		PersonBO person = ObjectAdapter.parseObject(personHATEOAS, PersonBO.class);
+		return ObjectAdapter.parseObject(
 				personRepository.save(person), PersonHATEOAS.class);
 
 	}
@@ -62,7 +62,7 @@ public class PersonService {
 		currentPerson.setFirstName(person.getFirstName());
 		currentPerson.setGender(person.getGender());
 		currentPerson.setAddress(person.getAddress());
-		return PersonAdapter.parseObject(
+		return ObjectAdapter.parseObject(
 				save(currentPerson), PersonVO.class);
 	}
 	
@@ -71,7 +71,7 @@ public class PersonService {
 		currentPerson.setFirstName(person.getFirstName());
 		currentPerson.setGender(person.getGender());
 		currentPerson.setAddress(person.getAddress());
-		return PersonAdapter.parseObject(
+		return ObjectAdapter.parseObject(
 				saveHateoas(currentPerson), PersonHATEOAS.class);
 	}
 	
@@ -89,12 +89,12 @@ public class PersonService {
 	}
 	
 	public List<PersonVO> findAll() {
-		return PersonAdapter.parseObjects(
+		return ObjectAdapter.parseObjects(
 				personRepository.findAll(), PersonVO.class);
 	}
 	
 	public List<PersonHATEOAS> findAllHateoas() {
-		return PersonAdapter.parseObjects(
+		return ObjectAdapter.parseObjects(
 				personRepository.findAll(), PersonHATEOAS.class);
 	}
 	

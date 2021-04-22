@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springrest.adapter.PersonAdapter;
+import com.springrest.adapter.ObjectAdapter;
 import com.springrest.data.vo.PersonVO;
 import com.springrest.service.PersonService;
 
 @RestController
-@RequestMapping("/person/v3")
+@RequestMapping("/api/person/v3")
 public class PersonControlerV3 {
 	
 	@Autowired
 	PersonService personService;
 	
 	@Autowired
-	PersonAdapter personAdapter;
+	ObjectAdapter personAdapter;
 	
 	@GetMapping(produces = { "application/json", "application/xml",  "application/x-yaml"})
 	public List<PersonVO> findAll() {

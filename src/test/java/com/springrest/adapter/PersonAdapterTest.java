@@ -23,7 +23,7 @@ public class PersonAdapterTest {
 
 	    @Test
 	    public void parseEntityToVOTest() {
-	        PersonVO output = PersonAdapter.parseObject(inputObject.mockEntity(), PersonVO.class);
+	        PersonVO output = ObjectAdapter.parseObject(inputObject.mockEntity(), PersonVO.class);
 	        Assert.assertEquals(Long.valueOf(0L), output.getId_person());
 	        Assert.assertEquals("First Name Test0", output.getFirstName());
 	        Assert.assertEquals("Addres Test0", output.getAddress());
@@ -32,7 +32,7 @@ public class PersonAdapterTest {
 
 	    @Test
 	    public void parseEntityListToVOListTest() {
-	        List<PersonVO> outputList = PersonAdapter.parseObjects(inputObject.mockEntitys(), PersonVO.class);
+	        List<PersonVO> outputList = ObjectAdapter.parseObjects(inputObject.mockEntitys(), PersonVO.class);
 	        PersonVO outputZero = outputList.get(0);
 	        
 	        Assert.assertEquals(Long.valueOf(0L), outputZero.getId_person());
@@ -57,7 +57,7 @@ public class PersonAdapterTest {
 
 	    @Test
 	    public void parseVOToEntityTest() {
-	        PersonBO output = PersonAdapter.parseObject(inputObject.mockVO(), PersonBO.class);
+	        PersonBO output = ObjectAdapter.parseObject(inputObject.mockVO(), PersonBO.class);
 	        Assert.assertEquals(Long.valueOf(0L), output.getId_person());
 	        Assert.assertEquals("First Name Test0", output.getFirstName());
 	        Assert.assertEquals("Addres Test0", output.getAddress());
@@ -66,7 +66,7 @@ public class PersonAdapterTest {
 
 	    @Test
 	    public void parserVOListToEntityListTest() {
-	        List<PersonBO> outputList = PersonAdapter.parseObjects(inputObject.mockVOs(), PersonBO.class);
+	        List<PersonBO> outputList = ObjectAdapter.parseObjects(inputObject.mockVOs(), PersonBO.class);
 	        PersonBO outputZero = outputList.get(0);
 	        
 	        Assert.assertEquals(Long.valueOf(0L), outputZero.getId_person());

@@ -26,4 +26,5 @@
 	<property name="DATETIME" value="DATETIME" dbms="mysql,mssql" />
 	
 	<include file="/changes/rest-with-springboot-0001.xml" relativeToChangelogFile="true"/>
+	<include file="/changes/rest-with-springboot-0002.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
