@@ -10,7 +10,9 @@
  Nesta situação é utilizado a Path Parans,  é obrigado informar valores
  @PathVariable(value="oneparam") Strinh oneParam, value="twoparam") Strinh twoParam
  
- 
+ parameter iin RequestMapping
+ method (requestMethod.GET/POST,PUT,DELETE)
+ producer (MediaType.APPLICATION_JSON_VALUE) Qual o retorno, o que é prduzido de retorno de midia
  
  --Exceptions in RestAPI
  --No Rest se retorna StatusCode com um exception customizada que define o tipo de exception lançada
@@ -68,3 +70,7 @@
 				return nre ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST)
 	}
  }
+	
+	
+	
+	
