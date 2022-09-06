@@ -1,21 +1,35 @@
---Query Parans/String ou Path Parans, a diferênça?
- 
- 
- @requestMapping(value=/sum/{oneparam}/{twoparam})
- 
- Nesta situação é utilizado a Query Parans/String, onde não é obrigado informar valores
+-- RequestMapping
+--- Pode ser utilizado tanto na classe
+@requestMapping(value=/example)
+public class ExempleControler
+
+
+--- Como também em métodos
+@requestMapping(value=/{id})
+public Sring findById(PathVariable value="id", String id){}
+
+
+
+-- Query Parans/String, Path Parans, RequestBody a diferênça?
+
+--- Nesta situação é utilizado a Query Parans/String, onde não é obrigado informar valores
  @RequestVariable (value="oneparam", defaultValue="NumberDefault") Strinh oneParam, value="twoparam", defaultValue="NumberDefault") Strinh twoParam
  
  
- Nesta situação é utilizado a Path Parans,  é obrigado informar valores
+--- Nesta situação é utilizado a Path Parans,  é obrigado informar valores
  @PathVariable(value="oneparam") Strinh oneParam, value="twoparam") Strinh twoParam
  
+ 
+--- Nesta situação Recebemos o objeto json, enviado no corpo da solicitação.
+ @RequestBody( Person person)
+
  parameter iin RequestMapping
  method (requestMethod.GET/POST,PUT,DELETE)
  producer (MediaType.APPLICATION_JSON_VALUE) Qual o retorno, o que é prduzido de retorno de midia
+ consumer() Qual tipo de conteúdo é aceitável
  
- --Exceptions in RestAPI
- --No Rest se retorna StatusCode com um exception customizada que define o tipo de exception lançada
+ -- Exceptions in RestAPI
+ --- No Rest se retorna StatusCode com um exception customizada que define o tipo de exception lançada
   
  @requestMapping(value=/sum/{oneparam}/{twoparam})
  public sun(@PathVariable(value="oneparam"),@PathVariable(value="oneparam")) trows Exception(){
@@ -23,12 +37,12 @@
  }
   
  
- ---Packege Exception
+ --- Packege Exception
  @ResponseStatus(HttpStatus.BAD_REQUEST)
  public class ExampleException extends RunTimeException{}
  
  
- ---Class Serializavel Entity de retorno
+ --- Class Serializavel Entity de retorno
  @AllArgsConstructor
  public class ExceptionResponse implemtns Serializavel {
  
@@ -38,17 +52,16 @@
  }
  
  
- ControllerAdvice é Utilizado para tratamento GLOBAL dos controllers, isso quer dizer que caso exista uma exception não tratada, em algum controler, ela será lançada a mais generica desta classe
- também ela vai centralizar todos os tipos de exceptions.
+ --- ControllerAdvice é Utilizado para tratamento GLOBAL dos controllers, isso quer dizer que caso exista uma exception não tratada, em algum controler, ela será lançada a mais generica desta classe, além disso ele vai centralizar todos os tipos de exceptions.
  
- ---Packege handler
+ --- Packege handler
  @ControllerAdvice 
  @RestController
  public class CustomizedresponseException extends ResponseEntityExceptionHandler{
  
  
  
- ---Generica, para Todas Exception
+ --- Generica, para Todas Exception
  @ExceptionHandler(Exception.class)
  public final ResponseEntity<ExceptionResponse> handleAllException(Exception ex, WebRequest request, ){
 		ExceptionResponse  exceptionResponse new ExceptionResponse(
@@ -59,7 +72,7 @@
 				return new ResponseEntity<>( exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR)
 	}
  
-  ---Exception Customizada
+  --- Exception Customizada
  @ExceptionHandler(CustomizedresponseException.class){
  public final ResponseEntity<Exceptionresponse> handleCustomizedException(CustomizedresponseException ex, WebRequest request, )
 		ExceptionResponse  exceptionResponse new ExceptionResponse(
